@@ -17,9 +17,9 @@ class BrandViewSet(viewsets.ModelViewSet):
             return Response(
                 {
                     "message": "A brand that has related car models cannot be deleted",
-                    "status": 500,
+                    "status": 403,
                 },
-                500,
+                403,
             )
         return super().destroy(request, *args, **kwargs)
 
