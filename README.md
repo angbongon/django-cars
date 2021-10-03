@@ -36,7 +36,7 @@ We have two entities to interact
 
 #### GET
 - GET /carbrands/. Example:
-    - request: GET /api/brands/
+    - request: GET /api/carbrands/
     - response: **200 OK**
     ```
     [
@@ -58,7 +58,7 @@ We have two entities to interact
     ]
     ```
 - GET /carbrands/:id. Example:
-    - request: GET /api/brands/7
+    - request: GET /api/carbrands/7
     - response: **200 OK**
     ```
     {
@@ -79,7 +79,7 @@ We have two entities to interact
     ```
     - error:
         - When using and id that does not exist in the database:
-            - request: GET /api/brands/0
+            - request: GET /api/carbrands/0
             - response: **404 NOT FOUND**
             ```
             {
@@ -88,7 +88,7 @@ We have two entities to interact
             ```
 #### POST
 - POST /carbrands/. Example:
-    - request: POST /api/brands/
+    - request: POST /api/carbrands/
     ```
     {
         "name": "Brand2",
@@ -107,7 +107,7 @@ We have two entities to interact
     ```
     - error:
         - When the name attribute is empty:
-            - request: POST /api/brands/
+            - request: POST /api/carbrands/
             ```
             {
                 "name": "",
@@ -125,7 +125,7 @@ We have two entities to interact
 
 #### PUT
 - PUT /carbrands/:id/. Example:
-    - request: PUT /api/brands/7
+    - request: PUT /api/carbrands/7
     ```
     {
         "name": "Brand2",
@@ -152,7 +152,7 @@ We have two entities to interact
     ```
     - error:
         - When the id does not exist in the database:
-            - request: PUT /api/brands/0
+            - request: PUT /api/carbrands/0
             - response: **404 NOT FOUND**
             ```
             {
@@ -160,7 +160,7 @@ We have two entities to interact
             }
             ```
         - When the name attribute is empty:
-            - request: PUT /api/brands/7
+            - request: PUT /api/carbrands/7
             ```
             {
                 "name": "",
@@ -177,11 +177,11 @@ We have two entities to interact
             ```
 #### DELETE
 - DELETE /carbrands/:id/. Example:
-    - request: DELETE /api/brands/7
+    - request: DELETE /api/carbrands/7
     - response: **204 NO CONTENT**
     - error:
         - When the id does not exist in the database:
-            - request: DELETE /api/brands/0
+            - request: DELETE /api/carbrands/0
             - response: **404 NOT FOUND**
             ```
             {
@@ -189,8 +189,8 @@ We have two entities to interact
             }
             ```
         - When the brand has related cars in the database:
-            - request: DELETE /api/brands/7
-            - response: **500 INTERNAL SERVER ERROR**
+            - request: DELETE /api/carbrands/7
+            - response: **403 FORBIDDEN**
             ```
             {
                 "message": "A brand that has related car models cannot be deleted",
@@ -215,7 +215,7 @@ We have two entities to interact
     ]
     ```
 - GET /carmodels/:id. Example:
-    - request: GET /api/models/7
+    - request: GET /api/carmodels/7
     - response: **200 OK**
     ```
     {
@@ -258,7 +258,7 @@ We have two entities to interact
     ```
     - error:
         - When the any attribute is empty:
-            - request: POST /api/models/
+            - request: POST /api/carmodels/
             ```
             {
                 "brand": "Brand2",
